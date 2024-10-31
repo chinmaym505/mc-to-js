@@ -28,7 +28,7 @@
             <groupId>org.example</groupId>
             <artifactId>client</artifactId>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/client.jar</systemPath>
+            <systemPath>${project.basedir}/lib/client.jar</systemPath>
         </dependency>
     </dependencies>
 
