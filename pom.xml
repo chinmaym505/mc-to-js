@@ -4,49 +4,34 @@
     <groupId>org.example</groupId>
     <artifactId>teavm-example</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.google.j2cl</groupId>
-                <artifactId>j2cl</artifactId>
-                <version>1.0</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    
     <dependencies>
         <dependency>
-            <groupId>com.google.j2cl</groupId>
-            <artifactId>j2cl-uber</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>client</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/client.jar</systemPath>
+            <groupId>org.teavm</groupId>
+            <artifactId>teavm-maven-plugin</artifactId>
+            <version>0.10.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.vertispan.j2cl</groupId>
-                <artifactId>j2cl-maven-plugin</artifactId>
-                <version>0.1</version>
+                <groupId>org.teavm</groupId>
+                <artifactId>teavm-maven-plugin</artifactId>
+                <version>0.10.0</version>
                 <executions>
                     <execution>
-                        <id>j2cl</id>
                         <goals>
-                            <goal>build</goal>
+                            <goal>compile</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <target>javascript</target>
+                    <classpath>${project.basedir}/lib/client.jar</classpath>
+                </configuration>
             </plugin>
         </plugins>
     </build>
