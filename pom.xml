@@ -42,6 +42,9 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <modules>
+                        <module>com.example.YourModuleName</module>
+                    </modules>
                     <logLevel>INFO</logLevel>
                     <style>OBF</style>
                     <compileReport>true</compileReport>
